@@ -10,7 +10,7 @@ mode con cols=100 lines=30
 
 > 出师不利，刚开始就卡住了，cmd不能使用API命令？
 >
-> ![image-20251201173802383](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201173802383.png)
+> ![Win 32 API_1](./Win32 API.assets/Win 32 API_1.png)
 >
 > 先接着往下学吧，为什么别人电脑可以。
 
@@ -38,7 +38,7 @@ mode con cols=100 lines=30
 
 > 这里还是选18吧，太小了看不清啊。
 
-![image-20251201174508873](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201174508873.png)
+![Win 32 API_2](./Win32 API.assets/Win 32 API_2.png)
 
 ### ③ 把“缓冲区”和“窗口”一起改成 100×30
 
@@ -52,9 +52,7 @@ mode con cols=100 lines=30
 
 点右下角“**确定**”→关闭窗口。
 
-​     
-
-![image-20251201191721197](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201191721197.png)
+![Win 32 API_3](./Win32 API.assets/Win 32 API_3.png)
 
 > 你看到的灰色，是因为 Windows 在你**手动拖过窗口边框**后，会自动把“由系统定位窗口”取消掉，并且把“窗口位置”锁死，导致**缓冲区宽度**那一栏也连带变灰。
 > 只要**重新勾选**“由系统定位窗口”，所有数字会立刻变白，就能改了。
@@ -71,7 +69,7 @@ mode con cols=100 lines=30
 
 ## 验证
 
-![image-20251201192655868](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201192655868.png)
+![Win 32 API_4](./Win32 API.assets/Win 32 API_4.png)
 
 OK，现在就解决了。
 
@@ -89,19 +87,19 @@ OK，现在就解决了。
 
 # 控制台设置
 
-![image-20251201193903856](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201193903856.png)
+![Win 32 API_5](./Win32 API.assets/Win 32 API_5.png)
 
 这里呢，如果代码运行后是这个界面，那么就代表代码运行是在终端上，这时候需要进行设置一下，
 
-![image-20251201193934391](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201193934391.png)
+![Win 32 API_6](./Win32 API.assets/Win 32 API_6.png)
 
 修改成让`Windows`决定。
 
-![image-20251201194234823](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201194234823.png)
+![Win 32 API_7](./Win32 API.assets/Win 32 API_7.png)
 
 也可以直接选控制台主机。
 
-![image-20251201194135171](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201194135171.png)
+![Win 32 API_8](./Win32 API.assets/Win 32 API_8.png)
 
 吧背景颜色修改一下，便于区分。
 
@@ -117,7 +115,7 @@ OK，现在就解决了。
 system("mode con cols=30 lines=30");
 ```
 
-![image-20251201194552055](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201194552055.png)
+![Win 32 API_9](./Win32 API.assets/Win 32 API_9.png)
 
 ```c
 #include <stdio.h>
@@ -136,9 +134,7 @@ int main()
 }
 ```
 
-![image-20251201194859503](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201194859503.png)
-
-
+![Win 32 API_10](./Win32 API.assets/Win 32 API_10.png)
 
 ## COORD控制台屏幕坐标
 
@@ -151,9 +147,9 @@ typedef struct _COORD {
 } COORD, *PCOORD;
 ```
 
-![image-20251201195723831](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201195723831.png)
+![Win 32 API_11](./Win32 API.assets/Win 32 API_11.png)
 
-![image-20251201195059166](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201195059166.png)
+![Win 32 API_12](./Win32 API.assets/Win 32 API_12.png)
 
 屏幕上任何一个位置就是一个坐标。
 
@@ -180,17 +176,17 @@ HANDLE WINAPI GetStdHandle(
 );
 ```
 
-![image-20251201200328803](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201200328803.png)
+![Win 32 API_14](./Win32 API.assets/Win 32 API_14.png)
 
 HANDLE是一种空指针变量。
 
-![image-20251201200538679](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201200538679.png)
+![Win 32 API_13](./Win32 API.assets/Win 32 API_13.png)
 
 ## GetConsoleCursorInfo 函数（[飞机票](https://learn.microsoft.com/zh-cn/windows/console/getconsolecursorinfo)）
 
 这里有光标一直在闪，如果贪吃蛇一直在跑的话，光标一直闪非常不方便，我们可以把光标隐藏起来。
 
-![image-20251201200738028](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201200738028.png)
+![Win 32 API_15](./Win32 API.assets/Win 32 API_15.png)
 
 检索有关指定控制台屏幕缓冲区的光标⼤⼩和可⻅性的信息。
 
@@ -234,13 +230,13 @@ int main()
 }
 ```
 
-![image-20251201202037804](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201202037804.png)
+![Win 32 API_16](./Win32 API.assets/Win 32 API_16.png)
 
 这里的25表示看见的光标，只占到一个字符的25%。也可以直接隐藏，那就需要设置结构体另一个成员。
 
 > 这里需要注意的是，不能只修改，不然将会不成功，而是设置 ---> 修改 ---> 再设置。
 
-![image-20251201202610043](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201202610043.png)
+![Win 32 API_17](./Win32 API.assets/Win 32 API_17.png)
 
 不是我没截，是真的没了。
 
@@ -257,7 +253,7 @@ BOOL WINAPI SetConsoleCursorPosition(
 
 指定新光标位置（以字符为单位）的 [**COORD**](https://learn.microsoft.com/zh-cn/windows/console/coord-str) 结构。 坐标是屏幕缓冲区字符单元的列和行。 **坐标必须位于控制台屏幕缓冲区的边界以内。**
 
-![image-20251201203910920](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201203910920.png)
+![Win 32 API_18](./Win32 API.assets/Win 32 API_18.png)
 
 ```c
  COORD pos = { 5, 5};
@@ -294,7 +290,7 @@ SHORT GetAsyncKeyState( int vKey );
 
 将键盘上每个键的[虚拟键值](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)传递给函数，函数通过返回值来分辨按键的状态。
 
-![image-20251201205356966](C:\Users\CXA\AppData\Roaming\Typora\typora-user-images\image-20251201205356966.png)
+![Win 32 API_19](./Win32 API.assets/Win 32 API_19.png)
 
 `GetAsyncKeyState` 的返回值是short类型，在上⼀次调⽤ `GetAsyncKeyState` 函数后，如果返回的16位的short数据中，最⾼位是1，说明按键的状态是按下，如果最⾼是0，说明按键的状态是抬起；如果最低位被置为1则说明，该按键被按过，否则为0。
 
